@@ -4,6 +4,9 @@ public class Program {
     public static boolean isPrime(int num) {
         boolean isPrime = true;
         
+        if (num <= 1) return false;
+        if (num == 2) return isPrime;
+        
         for (int i = 2; i * i <= num; i++) { 
             if (num % i == 0) {
                 isPrime = false;
@@ -14,37 +17,33 @@ public class Program {
         return isPrime;
     }
     
+    public static int calculateDigits(int num) {
+        int result = 0;
+        
+        while (num > 0) {
+            result += num % 10;
+            num /= 10;
+        }
+        
+        return result;
+    }
+    
     public static void main (String [] args) {
-        boolean isPrime = true;
-        int counter = 0;
-        
         Scanner scanner = new Scanner(System.in);
+        int coffeeRequestCount = 0;
         
-        System.out.print("-->  ");
-        String line = scanner.nextLine();
-        scanner.close();
         
-        int number = Integer.parseInt(line);
-        
-        if (number <= 1) {
-            System.err.println("IllegalArgument");
-            System.exit(-1);
-        }
-        /*  num = 7 case: 
-                Check 1 (for i=2): 4 <= 7 is true. The loop runs, and iterations becomes 1.
-                Check 2 (for i=3): 9 <= 7 is false. The loop stops.
-        */
-        for (int i = 2; i * i <= number; i++) {
-            counter++;
+        while (true) {
+            System.out.print("-->  ");
+            int num = scanner.nextInt();
             
-            if (number % i == 0) {
-                isPrime = false;
-                break;
-            }
+            if (num == 42) break;
+            
+            int number = calculateDigits(num);
+            
+            if (isPrime(number)) coffeeRequestCount++;
         }
-        /*  */
-        if (isPrime) counter++;
-        System.out.println(isPrime + " " + counter);
-        
+        scanner.close();
+        System.out.println("Count of coffee-request : " + coffeeRequestCount);   
     }
 }

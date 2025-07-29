@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class Program {
+    
     public static void main(String [] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("--> ");
-        String text = scanner.nextLine();
+        String text = scanner.next();
         
         int counts[] = new int[65536];
         for (char c : text.toCharArray()) counts[c]++;
@@ -78,19 +79,31 @@ public class Program {
             System.out.println(topChars[i] + " → height " + scaledHeights[i]);
         }
         
-        // print histogram now hihihihihihihihi
-        for (int row = 10; row >= 1; row--) {
-            for (int i = 0; i < found; i++) {
-                if (scaledHeights[i] == row) System.out.printf("%3d", topCounts[i]);
-                else if (scaledHeights[i] >= row) System.out.print("  #");
-                else System.out.print("   ");
-                System.out.print("   ");
+        // Fixed printing logic - translated from the correct version
+        int maxHeight = 10; // or whatever your max scaled height is
+        int totalLines = maxHeight + 2; // +2 for count row and character row
+        
+        System.out.println();
+        for (int i = 0; i < totalLines; i++) {
+            for (int j = 0; j < found; j++) {
+                if (topChars[j] != 0) {
+                    if (i + scaledHeights[j] + 2 == totalLines) {
+                        // Print count at the top of each bar
+                        System.out.format("%3d", topCounts[j]);
+                    } else if (i == totalLines - 1) {
+                        // Print character at the bottom row
+                        System.out.format("%3c", topChars[j]);
+                    } else if (i + scaledHeights[j] >= maxHeight) {
+                        // Print # for the bar body
+                        System.out.format("%3c", '#');
+                    } else {
+                        // Print spaces
+                        System.out.print("   ");
+                    }
+                }
             }
             System.out.println();
         }
-        for (int i = 0; i < found; i++) 
-        System.out.printf("%3c", topChars[i]);
-        System.out.println();
         
         scanner.close();
     }

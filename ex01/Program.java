@@ -11,7 +11,7 @@ public class Program {
         scanner.close();
         if (line.equals("")) {
             System.err.println("IllegalArgument");
-            return ;
+            System.exit(-1);
         }
         
         int number = Integer.parseInt(line);

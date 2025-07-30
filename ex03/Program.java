@@ -33,6 +33,7 @@ public class Program {
     }
     
     public static int checkGradesAndReturnMin(String gradesLine) {
+        /* temporarily to parse, makanstorish as7aybe */
         String grades[] = gradesLine.split(" ");
 
         if (grades.length != 5) return -1;

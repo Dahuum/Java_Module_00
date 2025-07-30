@@ -34,5 +34,3 @@ public class Program {
         System.out.println(isPrime + " " + counter);
     }
 }
-
-/* Checked insha allah */

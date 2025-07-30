@@ -37,8 +37,6 @@ public class Program {
         }
     }
 
-
-
     
     public static void printArray(String[] array, int[] intArray, int count) {
         // If the array isn't null and we have items to print...
@@ -54,6 +52,7 @@ public class Program {
             System.out.println(Arrays.toString(filledIntArray));
         }
     }
+    
     public static void main ( String [] args ) {
         String[] weekDaysRef = {"MO", "TU", "WE", "TH", "FR", "SA", "SU"};
 

@@ -7,9 +7,12 @@ public class Program {
         
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("-->  ");
         String line = scanner.nextLine();
         scanner.close();
+        if (line.equals("")) {
+            System.err.println("IllegalArgument");
+            return ;
+        }
         
         int number = Integer.parseInt(line);
         

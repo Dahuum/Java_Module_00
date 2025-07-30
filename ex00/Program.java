@@ -9,3 +9,5 @@
         System.out.println(result);
     }  
 }
+
+/* Checked */

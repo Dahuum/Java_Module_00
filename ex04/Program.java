@@ -5,15 +5,15 @@ public class Program {
     public static void main(String [] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("--> ");
-        String text = scanner.next();
+        String text = scanner.nextLine();
         
         int counts[] = new int[65536];
         for (char c : text.toCharArray()) counts[c]++;
         
-        for (int i = 0; i < 65536; i++) {
-            if (counts[i] > 0)
-                System.out.println((char)i + " appears " + counts[i] + " times");
-        }
+        // for (int i = 0; i < 65536; i++) {
+        //     if (counts[i] > 0)
+        //         System.out.println((char)i + " appears " + counts[i] + " times");
+        // }
         
         char[] allChars = new char[1000]; 
         int[] allCounts = new int[1000];
@@ -55,10 +55,10 @@ public class Program {
             topCounts[i] = allCounts[i];
         }
         
-        System.out.println("Sorted:");
-        for (int i = 0; i < topChars.length && topChars[i] != '\0'; i++) {
-            System.out.println(topChars[i] + " appears " + topCounts[i] + " times");
-        }
+        // System.out.println("Sorted:");
+        // for (int i = 0; i < topChars.length && topChars[i] != '\0'; i++) {
+        //     System.out.println(topChars[i] + " appears " + topCounts[i] + " times");
+        // }
         
         int maxFreq = 0;
         for (int i = 0; i < found; i++) {
@@ -74,10 +74,10 @@ public class Program {
         }
         
         // Test: print scaled heights
-        System.out.println("Scaled heights:");
-        for (int i = 0; i < found; i++) {
-            System.out.println(topChars[i] + " → height " + scaledHeights[i]);
-        }
+        // System.out.println("Scaled heights:");
+        // for (int i = 0; i < found; i++) {
+        //     System.out.println(topChars[i] + " → height " + scaledHeights[i]);
+        // }
         
         // Fixed printing logic - translated from the correct version
         int maxHeight = 10; // or whatever your max scaled height is

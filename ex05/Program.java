@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Arrays; // Don't forget to import the Arrays class!
 /* 
     * Absolute correctness of data is guaranteed, 
         except for sequential ordering of classes when populating the timetable
@@ -36,22 +35,6 @@ public class Program {
             System.out.println("|");
         }
     }
-
-    
-    public static void printArray(String[] array, int[] intArray, int count) {
-        // If the array isn't null and we have items to print...
-        if (array != null && count > 0) {
-            // Create a new array containing only the filled elements
-            String[] filledArray = Arrays.copyOf(array, count);
-            System.out.println(Arrays.toString(filledArray));
-        }
-    
-        if (intArray != null && count > 0) {
-            // Do the same for the integer array
-            int[] filledIntArray = Arrays.copyOf(intArray, count);
-            System.out.println(Arrays.toString(filledIntArray));
-        }
-    }
     
     public static void main ( String [] args ) {
         String[] weekDaysRef = {"MO", "TU", "WE", "TH", "FR", "SA", "SU"};
@@ -79,7 +62,6 @@ public class Program {
             students[i++] = Name;
             studentCount++;
         }
-        printArray(students, null, studentCount);
         
         i = 0;
         while (dotCount == 1) {
@@ -94,8 +76,6 @@ public class Program {
             weeklyDays[i] = words[1];
             i++; slotCount++;
         }
-        printArray(weeklyDays, weeklyHours, slotCount);
-        System.out.println();
         
         for (int day = 1; day <= 30; day++) {
             int weekDayIndex = (day + 0) % 7;
@@ -109,9 +89,6 @@ public class Program {
                 }
             }
         }
-        printArray(null, classDates, classInstanceCount);
-        printArray(null, classHours, classInstanceCount);
-
         
         int[][] timetable = new int[studentCount][classInstanceCount];
         
